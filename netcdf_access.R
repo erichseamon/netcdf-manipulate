@@ -1,4 +1,18 @@
-#--end of rasterization.  should be saved to grd for calling from calc_ET
+#------------------------------------------------------------------------#
+# TITLE:        netcdf_access.R
+#
+# AUTHOR:       Erich Seamon
+#
+# INSTITUITON:  College of Natural Resources
+#               University of Idaho
+#
+# DATE:         August 12, 2015
+#
+# STAGE:        netcdf access
+#
+# COMMENTS:     This script opens and displays netcdf data.  
+#
+#--Setting the working directory an d clearing the workspace-----------#
 
 library("ncdf")
 library("raster")
