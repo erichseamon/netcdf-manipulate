@@ -4,7 +4,7 @@
 library(ncdf4)
 
 #Download netcdf file
-url_grid<-"http://reacchpna.org/reacchspace/obj1/netcdf/MET/pdur/pdur_2012.nc"
+url_grid<-"http://thredds.northwestknowledge.net:8080/thredds/fileServer/MET/pr/pr_2016.nc"
 download.file(url_grid, "pdur_2012.nc", method = "auto",quiet = FALSE, mode="wb", cacheOK = TRUE)
 
 #Open file and check variables
@@ -24,15 +24,15 @@ lat.a<-as.vector(lat)
 
 print(c(nlon,nlat))
 
-t<-ncvar_get(ncin,"time")
+t<-ncvar_get(ncin,"day")
 time<-as.vector(t)
 
-altitude<-ncvar_get(ncin,"z")
+altitude<-ncvar_get(ncin,"precipitation_amount")
 dim(altitude)
 
 #Select part of the variable of interest, here altitude
 m <- 1
-altitude.slice <- altitude[, , m]
+altitude.slice <- precipitation_amount[, , m]
 altitude.vec<-as.vector(altitude.slice)
 
 #Combine into data frame
